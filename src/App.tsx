@@ -177,6 +177,9 @@ function ChatMessage(props: any) {
 					margin-left: auto;
 					justify-content: flex-end;
 				}
+				&.received {
+					justify-content: flex-start;
+				}
 				&.sent img {
 					order: 1;
 				}
