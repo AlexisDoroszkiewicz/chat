@@ -35,6 +35,7 @@ function App() {
 				margin-top: 1em;
 				& > button {
 					padding: 0.5em 1em;
+					width: 100%;
 				}
 			`}>
 			{user ? <Signout /> : <SignIn />}
@@ -160,7 +161,7 @@ function ChatMessage(props: any) {
 					color: black;
 				}
 			`}>
-			<img src={photo} />
+			<img src={photo} referrerPolicy="no-referrer" />
 			<p>{text}</p>
 		</div>
 	);
