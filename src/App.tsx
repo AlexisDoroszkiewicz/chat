@@ -170,6 +170,8 @@ function ChatMessage(props: any) {
 				p {
 					padding: 0.5em 1em;
 					border-radius: 20px;
+					max-width: 70%;
+					word-break: break-word;
 				}
 				&.sent {
 					margin-left: auto;
