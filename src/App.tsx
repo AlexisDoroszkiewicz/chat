@@ -74,6 +74,7 @@ function ChatRoom() {
 
 	const sendMessage = async (e: any) => {
 		e.preventDefault();
+		if (formValue == "") return;
 		const { uid } = auth?.currentUser || { uid: null };
 		await addDoc(collection(firestore, "messages"), {
 			text: formValue,
