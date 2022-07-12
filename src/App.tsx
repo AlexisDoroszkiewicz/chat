@@ -19,6 +19,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/react";
+import SendIcon from "@mui/icons-material/Send";
 
 const auth = getAuth(firebaseapp);
 const firestore = getFirestore(firebaseapp);
@@ -127,7 +128,21 @@ function ChatRoom() {
 					value={formValue}
 					onChange={(e) => setFormValue(e.target.value)}
 				/>
-				<button type="submit">🕊</button>
+				<button
+					type="submit"
+					css={css`
+						display: grid;
+						place-items: center;
+						background-color: transparent;
+						margin-left: 0.5em;
+						margin-right: 0.5em;
+					`}>
+					<SendIcon
+						css={css`
+							fill: #0096ff;
+						`}
+					/>
+				</button>
 			</form>
 		</>
 	);
