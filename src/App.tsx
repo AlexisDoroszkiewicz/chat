@@ -17,7 +17,7 @@ import { firebaseapp } from "../firebase";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { css } from "@emotion/react";
 
 const auth = getAuth(firebaseapp);
@@ -81,7 +81,10 @@ function ChatRoom() {
 		});
 
 		setFormValue("");
+		dummy.current?.scrollIntoView();
 	};
+
+	const dummy = useRef<HTMLDivElement>(null);
 
 	return (
 		<>
@@ -90,6 +93,7 @@ function ChatRoom() {
 					messages.map((msg, i) => (
 						<ChatMessage key={i} message={msg} />
 					))}
+				<div ref={dummy}></div>
 			</div>
 			<form
 				onSubmit={sendMessage}
