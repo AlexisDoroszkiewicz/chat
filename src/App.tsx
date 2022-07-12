@@ -65,7 +65,7 @@ function Signout() {
 }
 
 const messagesRef = collection(firestore, "messages");
-const q = query(messagesRef, orderBy("createdAt"), limit(25));
+const q = query(messagesRef, orderBy("createdAt"));
 
 function ChatRoom() {
 	const [messages] = useCollectionData(q);
