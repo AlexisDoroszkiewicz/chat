@@ -10,7 +10,6 @@ import {
 	collection,
 	addDoc,
 	orderBy,
-	limit,
 	serverTimestamp,
 } from "firebase/firestore";
 import { firebaseapp } from "../firebase";
@@ -20,6 +19,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/react";
 import SendIcon from "@mui/icons-material/Send";
+import Linkify from "react-linkify";
 
 const auth = getAuth(firebaseapp);
 const firestore = getFirestore(firebaseapp);
@@ -193,7 +193,9 @@ function ChatMessage(props: any) {
 				}
 			`}>
 			<img src={photo} referrerPolicy="no-referrer" />
-			<p>{text}</p>
+			<p>
+				<Linkify>{text}</Linkify>
+			</p>
 		</div>
 	);
 }
