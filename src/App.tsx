@@ -194,7 +194,14 @@ function ChatMessage(props: any) {
 			`}>
 			<img src={photo} referrerPolicy="no-referrer" />
 			<p>
-				<Linkify>{text}</Linkify>
+				<Linkify
+					componentDecorator={(decoratedHref, decoratedText, key) => (
+						<a target="blank" href={decoratedHref} key={key}>
+							{decoratedText}
+						</a>
+					)}>
+					{text}
+				</Linkify>
 			</p>
 		</div>
 	);
